@@ -1,0 +1,29 @@
+{
+  "name": "send-mandrill-template",
+  "version": "0.0.1",
+  "description": "Wrapper around the mandrill api focusing on one thing, and one thing only - sending templated email through Mandril, with the templates stored in Mandrill",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexjamesbrown/send-mandrill-template.git"
+  },
+  "keywords": [
+    "mandrill",
+    "email",
+    "template"
+  ],
+  "author": "Alex Brown",
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "nodemailer": "^1.4.0",
+    "proxyquire": "^1.5.0",
+    "sinon": "^1.15.4"
+  },
+  "dependencies": {
+    "lodash": "^3.10.0",
+    "mandrill-api": "^1.0.45"
+  }
+}

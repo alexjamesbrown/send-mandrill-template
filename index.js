@@ -73,11 +73,10 @@ MandrillTemplateSender.prototype.sendTemplate = function(templateName, emailAddr
         //log result console.log(result);
         return callback();
 
-    }, function(e) {
+    }, function(err) {
         // Mandrill returns the error as an object with name and message keys
-        console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
-        // A mandrill error occurred: Unknown_Subaccount - No subaccount exists with the id 'customer-123'
-        callback(e)
+        //console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
+        callback(err)
     });
 }
 

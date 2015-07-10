@@ -130,6 +130,41 @@ describe('#sendTemplate', function() {
             })
     });
 
+    it('returns error if mandrill template does not exist', function(done) {
+
+        function MockMandrill(key) {
+            this.messages = {
+                sendTemplate: sandbox.stub().callsArgWith(2, {
+                    status: "error",
+                    code: 5,
+                    name: "Unknown_Template",
+                    message: 'No such template "template-name"'
+                })
+            }
+
+            this.apikey = key;
+        }
+
+        var sendMandrillTemplate = new(proxyquire('../', {
+            'mandrill-api/mandrill': {
+                Mandrill: MockMandrill
+            }
+        }))('testapikey', {});
+
+        sendMandrillTemplate.sendTemplate(
+            'template-name', {
+                to: 'a@b.com'
+            }, {
+                'a': 1
+            },
+            function(err) {
+                should.exist(err)
+                err.name.should.equal('Unknown_Template')
+                err.message.should.equal('No such template "template-name"')
+                done();
+            })
+    });
+
     it('has reply to address set by default', function(done) {
         sendMandrillTemplate.sendTemplate(
             'template-name', {

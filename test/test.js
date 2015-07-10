@@ -122,8 +122,9 @@ describe('#sendTemplate', function() {
             },
             function(err) {
                 sinon.assert.notCalled(sendTemplateStub)
-                err.should.equal('No to address specified')
                 should.exist(err)
+                err.name.should.equal('No_To_Address')
+                err.message.should.equal('No to address specified')
 
                 done();
             })

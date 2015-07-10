@@ -30,7 +30,10 @@ MandrillTemplateSender.prototype.sendTemplate = function(templateName, emailAddr
     }
 
     if (!_emailAddresses.to)
-        return callback('No to address specified')
+        return callback({
+            name: 'No_To_Address',
+            message: 'No to address specified'
+        })
 
     var message = {
         to: [{

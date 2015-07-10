@@ -1,6 +1,6 @@
 {
   "name": "send-mandrill-template",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Wrapper around the mandrill api focusing on one thing, and one thing only - sending templated email through Mandril, with the templates stored in Mandrill",
   "main": "index.js",
   "scripts": {
